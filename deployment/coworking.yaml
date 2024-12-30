@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: coworking
-        image: <DOCKER_IMAGE_URI_FROM_ECR>
+        image: 493812585928.dkr.ecr.us-east-1.amazonaws.com/my-docker-repo:1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
