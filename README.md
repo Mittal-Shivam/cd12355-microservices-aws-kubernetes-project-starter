@@ -1,5 +1,10 @@
 # Project - Operationalizing a Coworking Space Microservice
 
+## Navigation
+
+### 1. [Deployment Steps](#steps-to-follow-to-deploy-the-application)
+### 2. [Project Rubric](#2-project-rubric)
+
 ## Steps to follow to deploy the application
 
 ### 1. Create an `EKS cluster`
@@ -92,17 +97,47 @@ The policy can also be attached from the AWS console by navigating to roles in A
 ## Project Rubric
 
 ### 1. Set up a Postgres database.
+![postgres pod status](image.png)
 
-Create a Dockerfile for the Python application.
-You'll submit the Dockerfile
-Write a simple build pipeline with AWS CodeBuild to build and push a Docker image into AWS ECR.
-Take a screenshot of AWS CodeBuild pipeline for your project submission.
-Take a screenshot of AWS ECR repository for the application's repository.
-Create a service and deployment using Kubernetes configuration files to deploy the application.
-You'll submit all the Kubernetes config files used for deployment (ie YAML files).
-Take a screenshot of running the kubectl get svc command.
-Take a screenshot of kubectl get pods.
-Take a screenshot of kubectl describe svc <DATABASE_SERVICE_NAME>.
-Take a screenshot of kubectl describe deployment <SERVICE_NAME>.
-Check AWS CloudWatch for application logs.
-Take a screenshot of AWS CloudWatch Container Insights logs for the application.
+### 2. Create a Dockerfile for the Python application.
+[Dockerfile](Dockerfile)
+
+### 3. Write a simple build pipeline with AWS CodeBuild to build and push a Docker image into AWS ECR.
+[buildspec.yml](buildspec.yml)
+
+### 4. Take a screenshot of AWS CodeBuild pipeline for your project submission.
+![Build pipeline success](image-1.png)
+
+### 5. Take a screenshot of AWS ECR repository for the application's repository.
+![ECR Repo Image](image-2.png)
+
+### 6. Create a service and deployment using Kubernetes configuration files to deploy the application.
+- [pv.yml](deployment/pv.yml)
+- [pvc.yml](deployment/pvc.yml)
+- [pg-deployment.yml](deployment/pg-deployment.yml)
+- [pg-service.yml](deployment/pg-service.yml)
+- [configmap.yml](deployment/configmap.yaml)
+- [coworking.yml](deployment/coworking.yaml)
+
+### 7. Take a screenshot of running the kubectl get svc command.
+![get svc output](image-3.png)
+
+### 8. Take a screenshot of kubectl get pods.
+![get pods output](image-4.png)
+
+### 9. Take a screenshot of kubectl describe svc <DATABASE_SERVICE_NAME>.
+![describe svc output](image-5.png)
+
+### 10. Take a screenshot of kubectl describe deployment <SERVICE_NAME>.
+![coworking deployment](image-6.png)
+
+### 11. Take a screenshot of AWS CloudWatch Container Insights logs for the application.
+![app logs](image-7.png)
+
+### 12. API calls and output
+```bash
+curl http://ac520e1de1aa84db6b7e5de39a293a72-722140655.us-east-1.elb.amazonaws.com:5153/api/reports/daily_usage
+curl http://ac520e1de1aa84db6b7e5de39a293a72-722140655.us-east-1.elb.amazonaws.com:5153/api/reports/user_visits
+```
+![alt text](image-8.png)
+
