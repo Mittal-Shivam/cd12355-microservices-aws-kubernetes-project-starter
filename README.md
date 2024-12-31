@@ -13,7 +13,6 @@ eksctl create cluster --name shivam-cluster --region us-east-1 --nodegroup-name 
 ```
 
 #### Note
-
 - I have used t3.small as for small-scale or non-production environments with low traffic, a t3.small instance is a cost-effective solution that can handle light PostgreSQL workloads
 - To save costs, we can also:
     - Consider t3.micro, as our database workload is very light, consider using a t3.micro instance to further reduce costs while still benefiting from burstable performance.
